@@ -4,7 +4,6 @@ import java.util.concurrent.locks.Lock;
 
 public class Runner extends Thread
 {
-    // let's use semaphore with an access count of 1 as our mutex
     static Semaphore semaphore = new Semaphore(1);
     int counter = 0;
     String name;
