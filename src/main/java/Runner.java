@@ -1,6 +1,5 @@
 import java.lang.*;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.locks.Lock;
 
 public class Runner extends Thread
 {
@@ -17,11 +16,15 @@ public class Runner extends Thread
         for (int i = 0; i<10; i++){
 
             if (this.name.equalsIgnoreCase("Ann")){
-                // do something here, eg. semaphore.acquire();
+                try {
+                    semaphore.acquire();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
             if (this.name.equalsIgnoreCase("Bill")){
-                // do something here
+                semaphore.release();
             }
 
             if (this.name.equalsIgnoreCase("Charlie")){
